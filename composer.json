@@ -1,0 +1,21 @@
+{
+    "name": "grajewsky/annotations",
+    "description": "PHP Annotations OOP",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Grajewsky\\Annotations\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "grajewsky",
+            "email": "grajewski.lukasz@wp.pl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "7"
+    }
+}
