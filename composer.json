@@ -4,8 +4,12 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Grajewsky\\Annotations\\": "src/"
+            "Grajewsky\\Annotations\\": "src/",
+            "Test\\": "tests/"
         }
+    }, 
+    "scripts": {
+        "tests": "phpunit --bootstrap ./vendor/autoload.php --testdox tests"
     },
     "license": "MIT",
     "authors": [
