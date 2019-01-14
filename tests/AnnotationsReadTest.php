@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use Test\EntityTestClass;
 use PHPUnit\Framework\TestCase;
 use Grajewsky\Annotations\Annotations;
 

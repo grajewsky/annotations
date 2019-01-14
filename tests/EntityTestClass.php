@@ -1,5 +1,6 @@
 <?php
 
+namespace Test;
 /**
  * @Sample value=1
  */

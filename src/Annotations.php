@@ -2,7 +2,9 @@
 
 namespace Grajewsky\Annotations;
 
+use ReflectionClass;
 use Grajewsky\Annotations\Interfaces\Settings;
+use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
 use Grajewsky\Annotations\Settings\Settings as SettingsImpl;
 
 
@@ -37,6 +39,17 @@ final class Annotations {
     }
 
     private function readClassAnnotations($class) {
-        
+        $providers = array(
+            \Grajewsky\Annotations\Providers\DocBlockAnnotationsProvider::class
+        );
+        if(\class_exists($class, true)) {
+            $rf = new ReflectionClass($class);
+            foreach ($providers as $providerClass) {
+                $provider = new $providerClass;
+                if($provider instanceof AnnotationsProvider) {
+                    $provider->getAnnotations($rf->getDocComment());
+                }
+            }
+        }
     }
 }
