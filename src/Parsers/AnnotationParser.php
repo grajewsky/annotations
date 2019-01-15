@@ -4,6 +4,7 @@
 namespace Grajewsky\Annotations\Parsers;
 
 use Grajewsky\Annotations\Interfaces\Parser;
+use Grajewsky\Annotations\Domains\Annotation;
 
 
 class AnnotationParser implements Parser {
@@ -37,6 +38,17 @@ class AnnotationParser implements Parser {
         if (!$hasAnnotations) {
 			return array();
         }
-        
+        if(is_array($matches)) {
+            foreach($matches as $annotationMatch) {
+                if(is_array($annotationMatch) && count($annotationMatch) > 2) {
+                    if( is_string($annotationMatch[1]) && is_string($annotationMatch[2])) {
+                        $name = $annotationMatch[1];
+                    }
+                    $annotation = new Annotation($name, null);
+                    $annotation->setFields($this->parseParamteter($annotationMatch[2]));
+                }
+            }
+        }
+
     }
 }
