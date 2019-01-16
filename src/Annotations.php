@@ -42,12 +42,12 @@ final class Annotations {
     private function readClassAnnotations($class) {
         $providers = $this->getSettings()->getAnnotationsProvider();
         if(\class_exists($class, true)) {
+            $storage = $this->getSettings()->getStorage();
             $rf = new ReflectionClass($class);
             $annotations = $provider->getAnnotations($rf->getDocComment());
-            $storage = $this->getSettings()->getStorage();
             foreach($annotations as $annotation) {
-                if($annotation instanceof Annotation) {
-                  //  $storage->put()
+                if($annotation instanceof \Grajewsky\Annotations\Interfaces\Annotation) {
+                    $storage->put($annotation->getName(), $annotation);
                 }
             }
         }
