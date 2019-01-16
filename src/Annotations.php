@@ -6,6 +6,7 @@ use ReflectionClass;
 use Grajewsky\Annotations\Interfaces\Settings;
 use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
 use Grajewsky\Annotations\Settings\Settings as SettingsImpl;
+use Grajewsky\Annotations\Interfaces\Annotation;
 
 
 final class Annotations {
@@ -39,15 +40,14 @@ final class Annotations {
     }
 
     private function readClassAnnotations($class) {
-        $providers = array(
-            \Grajewsky\Annotations\Providers\DocBlockAnnotationsProvider::class
-        );
+        $providers = $this->getSettings()->getAnnotationsProvider();
         if(\class_exists($class, true)) {
             $rf = new ReflectionClass($class);
-            foreach ($providers as $providerClass) {
-                $provider = new $providerClass;
-                if($provider instanceof AnnotationsProvider) {
-                    $provider->getAnnotations($rf->getDocComment());
+            $annotations = $provider->getAnnotations($rf->getDocComment());
+            $storage = $this->getSettings()->getStorage();
+            foreach($annotations as $annotation) {
+                if($annotation instanceof Annotation) {
+                  //  $storage->put()
                 }
             }
         }
