@@ -20,11 +20,10 @@ abstract class Annotatable {
         $this->annotationsSettings = new Settings();
         $this->annotations = Annotations::read($this, $this->annotationsSettings);
     }
-    public function __call($name, $args) {
-        if(\property_exists($this, $name) && !\method_exists($this, $name)) {
-            $rc = new \ReflectionClass($this);
-            print_r($rc->getProperties());
-            return $this->getFieldAnnotations($name);
-        }
+    /**
+     * @return Array<Annotation>
+     */
+    public function annotations(?string $name = null): array {
+        return $this->annotations->annotations($name);
     }
 }

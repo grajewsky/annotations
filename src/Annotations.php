@@ -39,16 +39,40 @@ final class Annotations {
         $this->settings = $settings;
     }
 
+    /** 
+     * @return Array<Annotation>
+     */
+    public function annotations(?string $accessor = null) : array {
+
+    }
     private function readClassAnnotations($class) {
-        $providers = $this->getSettings()->getAnnotationsProvider();
+        $provider = $this->getSettings()->getAnnotationsProvider();
         if(\class_exists($class, true)) {
             $storage = $this->getSettings()->getStorage();
             $rf = new ReflectionClass($class);
             $annotations = $provider->getAnnotations($rf->getDocComment());
             foreach($annotations as $annotation) {
                 if($annotation instanceof \Grajewsky\Annotations\Interfaces\Annotation) {
-                    $storage->put($annotation->getName(), $annotation);
+                    $storage->add("class", $annotation);
                 }
+            }
+            $this->readFieldsAnnotations($rf->getProperties());
+            $this->readFieldsAnnotations($rf->getMethods());
+
+            print_r($storage);
+        }
+    }
+    private function readFieldsAnnotations(?array $fieldsProperties) {
+        $provider = $this->getSettings()->getAnnotationsProvider();
+        if (\is_null($fieldsProperties) || count($fieldsProperties) > 0) {
+            $storage = $this->getSettings()->getStorage();
+            foreach ($fieldsProperties as $reflectField) {
+                $annotations = $provider->getAnnotations($reflectField->getDocComment());
+                foreach($annotations as $annotation) {
+                    if($annotation instanceof \Grajewsky\Annotations\Interfaces\Annotation) {
+                        $storage->add($reflectField->getName(), $annotation);
+                    }
+                }   
             }
         }
     }

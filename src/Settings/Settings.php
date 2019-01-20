@@ -3,11 +3,12 @@
 
 namespace Grajewsky\Annotations\Settings;
 
-use Grajewsky\Annotations\Interfaces\AnnotationsStorage;
-use Grajewsky\Annotations\Storages\ArraysAnnotationsStorage;
-use Grajewsky\Annotations\Interfaces\Settings as SettingsInterface;
-use Grajewsky\Annotations\Providers\DocBlockAnnotationsProvider;
 use Grajewsky\Annotations\Parsers\AnnotationParser;
+use Grajewsky\Annotations\Interfaces\AnnotationsStorage;
+use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
+use Grajewsky\Annotations\Storages\ArraysAnnotationsStorage;
+use Grajewsky\Annotations\Providers\DocBlockAnnotationsProvider;
+use Grajewsky\Annotations\Interfaces\Settings as SettingsInterface;
 
 final class Settings implements SettingsInterface {
     /**

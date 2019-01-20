@@ -12,7 +12,7 @@ class AnnotationParser implements Parser {
     const ANNOTATION_REGEX = '/@(\w+)(?:\s*(?:\(\s*)?(.*?)(?:\s*\))?)??\s*(?:\n|\*\/)/';
 
     private $parametersParsers = array(
-        \Grajewsky\Annotations\Parsers\ParametersParser::class
+        \Grajewsky\Annotations\Parsers\Helper\ParametersParser::class
     );
     private function parseParamteter(string $source): array {
         $parameters = array();
@@ -20,9 +20,7 @@ class AnnotationParser implements Parser {
         foreach ($this->parametersParsers as $parser) {
             if(\class_exists($parser, true)) {
                 $parserClass = new $parser;
-                if($parserClass instanceof \Grajewsky\Annotations\Interfaces\Parser) {
-                    $parameters = array_merge($parameters, $parserClass->parse($source));
-                }
+                $parameters = array_merge($parameters, $parserClass->parseParameter($source));
 
             }
         }
@@ -31,13 +29,14 @@ class AnnotationParser implements Parser {
     public function parse(string $source): array {
         $hasAnnotations = preg_match_all(
 			self::ANNOTATION_REGEX,
-			$classDocBlock,
+			$source,
 			$matches,
 			PREG_SET_ORDER
         );
         if (!$hasAnnotations) {
 			return array();
         }
+        $annotations = array();
         if(is_array($matches)) {
             foreach($matches as $annotationMatch) {
                 if(is_array($annotationMatch) && count($annotationMatch) > 2) {
@@ -46,9 +45,10 @@ class AnnotationParser implements Parser {
                     }
                     $annotation = new Annotation($name, null);
                     $annotation->setFields($this->parseParamteter($annotationMatch[2]));
+                    $annotations = array_merge($annotations, array($annotation));
                 }
             }
         }
-
+        return $annotations;
     }
 }

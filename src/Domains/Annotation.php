@@ -27,6 +27,9 @@ class Annotation implements AnnotationInteraface {
         }
         return null;
     }
+    public function setFields(array $fields) {
+        $this->fields = $fields;
+    }
     public function getFields(): array {
         return $this->fields;
     }

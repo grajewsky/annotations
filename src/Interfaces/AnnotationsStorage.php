@@ -6,7 +6,21 @@ use Grajewsky\Annotations\Interfaces\Annotation;
 
 
 interface AnnotationsStorage {
-    public function put(string $label, Annotation $annotion): void;
-    public function putAll(array $annotations): void;
-    public function get(string $label): Annotation;
+
+    /**
+     * Put all annotations by $label namespace
+     * @return void
+     */
+    public function putAll(string $label, array $annotions): void;
+
+    /**
+     * Add label by namespace
+     * @return void
+     */
+    public function add(string $label, Annotation $annotation) : void;
+
+    /**
+     * @return Array<Annotation> | null
+     */
+    public function get(string $label): ?array;
 }

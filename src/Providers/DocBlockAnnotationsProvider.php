@@ -4,6 +4,7 @@
 
 namespace Grajewsky\Annotations\Providers;
 
+use Grajewsky\Annotations\Interfaces\Parser;
 use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
 
 
@@ -22,6 +23,6 @@ class DocBlockAnnotationsProvider implements AnnotationsProvider {
         return $this->parser;
     }
     public function getAnnotations(string $classDocBlock): array {
-        return $this->getParser()->parse($source);
+        return $this->getParser()->parse($classDocBlock);
     }
 }
