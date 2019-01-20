@@ -43,7 +43,12 @@ final class Annotations {
      * @return Array<Annotation>
      */
     public function annotations(?string $accessor = null) : array {
-
+        $storage = $this->getSettings()->getStorage();
+        if(\is_null($accessor)) {
+            return $storage->get("class");
+        } else {
+            return $storage->get($accessor);
+        }
     }
     private function readClassAnnotations($class) {
         $provider = $this->getSettings()->getAnnotationsProvider();
@@ -58,8 +63,6 @@ final class Annotations {
             }
             $this->readFieldsAnnotations($rf->getProperties());
             $this->readFieldsAnnotations($rf->getMethods());
-
-            print_r($storage);
         }
     }
     private function readFieldsAnnotations(?array $fieldsProperties) {
