@@ -46,4 +46,11 @@ class ArraysAnnotationsStorage implements AnnotationsStorage {
         }
         return $exist;
     }
+    public function setConfig(array $data): void {
+        // unsupported
+    }
+    public function getConfig(): array {
+        // unsupported
+        return array();
+    }
 }
