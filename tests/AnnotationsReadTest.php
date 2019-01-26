@@ -44,7 +44,7 @@ final class AnnotationsReadTest extends TestCase
 
     }
     public function testOnePropertyHasEmptyAnnotationFields(): void {
-        $this->annotationsDefault->annotations()
+        //$this->annotationsDefault->annotations()
     }
 
 }
