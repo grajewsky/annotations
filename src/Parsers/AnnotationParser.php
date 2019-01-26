@@ -39,12 +39,16 @@ class AnnotationParser implements Parser {
         $annotations = array();
         if(is_array($matches)) {
             foreach($matches as $annotationMatch) {
-                if(is_array($annotationMatch) && count($annotationMatch) > 2) {
-                    if( is_string($annotationMatch[1]) && is_string($annotationMatch[2])) {
+                if(is_array($annotationMatch) && count($annotationMatch) >= 2) {
+                    if( is_string($annotationMatch[1])) {
                         $name = $annotationMatch[1];
                     }
                     $annotation = new Annotation($name, null);
-                    $annotation->setFields($this->parseParamteter($annotationMatch[2]));
+                    if(\array_key_exists(2, $annotationMatch)) {
+                        if(\is_string($annotationMatch[2])) {
+                            $annotation->setFields($this->parseParamteter($annotationMatch[2]));
+                        }
+                    }
                     $annotations = array_merge($annotations, array($annotation));
                 }
             }

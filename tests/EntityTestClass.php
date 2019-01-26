@@ -8,6 +8,7 @@ namespace Test;
 class EntityTestClass {
     /**
      * @ORM table=entity
+     * @Test
      */
     private $test = 1;
 }

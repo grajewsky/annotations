@@ -7,6 +7,9 @@ use Grajewsky\Annotations\Annotations;
 
 final class AnnotationsReadTest extends TestCase
 {
+    /** 
+     * @var Annotations
+     */
     private $annotationsDefault = null;
 
     public function setUp() {
@@ -26,6 +29,22 @@ final class AnnotationsReadTest extends TestCase
     }
     public function testDefaultStrictTypeArray(): void {
         $this->assertTrue($this->annotationsDefault->getSettings()->getStrict() == "array");
+    }
+    public function testReadProptertyAnnotation(): void {
+        $propertyName = 'test';
+        $requiredArrayKey = 'ORM';
+
+        $arrayOfAnnotations = $this->annotationsDefault->annotations($propertyName);
+        $this->assertArrayHasKey($requiredArrayKey, $arrayOfAnnotations);
+        $this->assertTrue(is_array($arrayOfAnnotations));
+        foreach($arrayOfAnnotations as $keyString => $annotationObject) {
+            $this->assertTrue(is_string($keyString));
+            $this->assertInstanceOf(\Grajewsky\Annotations\Interfaces\Annotation::class, $arrayOfAnnotations[$keyString]);
+        }
+
+    }
+    public function testOnePropertyHasEmptyAnnotationFields(): void {
+        $this->annotationsDefault->annotations()
     }
 
 }

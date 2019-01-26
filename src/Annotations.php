@@ -4,7 +4,6 @@ namespace Grajewsky\Annotations;
 
 use ReflectionClass;
 use Grajewsky\Annotations\Interfaces\Settings;
-use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
 use Grajewsky\Annotations\Settings\Settings as SettingsImpl;
 use Grajewsky\Annotations\Interfaces\Annotation;
 
