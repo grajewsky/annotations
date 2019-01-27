@@ -4,6 +4,7 @@ declare(strict_types=1);
 use Test\EntityTestClass;
 use PHPUnit\Framework\TestCase;
 use Grajewsky\Annotations\Annotations;
+use Grajewsky\Annotations\Interfaces\Annotation;
 
 final class AnnotationsReadTest extends TestCase
 {
@@ -39,12 +40,24 @@ final class AnnotationsReadTest extends TestCase
         $this->assertTrue(is_array($arrayOfAnnotations));
         foreach($arrayOfAnnotations as $keyString => $annotationObject) {
             $this->assertTrue(is_string($keyString));
-            $this->assertInstanceOf(\Grajewsky\Annotations\Interfaces\Annotation::class, $arrayOfAnnotations[$keyString]);
+            $this->assertInstanceOf(Annotation::class, $arrayOfAnnotations[$keyString]);
         }
 
     }
     public function testOnePropertyHasEmptyAnnotationFields(): void {
-        //$this->annotationsDefault->annotations()
+        $allAnnotations = $this->annotationsDefault->annotations(Annotations::ALL_ANNOTATIONS);
+        $foundEmptyFields = false;
+        foreach ($allAnnotations as $property => $annotations) {
+            $this->assertTrue(is_string($property));
+            foreach ($annotations as $name => $annotation) {
+                $this->assertTrue(is_string($name));
+                $this->assertInstanceOf(Annotation::class, $annotation);
+                if(count($annotation->getFields()) == 0) {
+                    $foundEmptyFields = true;
+                }
+            }
+        }
+        $this->assertTrue($foundEmptyFields);
     }
 
 }
