@@ -14,6 +14,10 @@ final class Annotations {
      */
     private $settings;
 
+    public const CLASS_ANNOTATIONS = "class";
+
+    public const ALL_ANNOTATIONS = "all";
+
     public function __construct($class, ?Settings $settings = null) {
         self::load($this, $class, $settings);
     }
@@ -45,7 +49,9 @@ final class Annotations {
         $storage = $this->getSettings()->getStorage();
         if(\is_null($accessor)) {
             return $storage->get("class");
-        } else {
+        } else if($accessor == 'all') {
+            return $storage->getAll();
+        } else { 
             return $storage->get($accessor);
         }
     }
