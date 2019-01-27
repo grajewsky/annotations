@@ -3,7 +3,9 @@
 
 namespace Grajewsky\Annotations\Interfaces;
 
-interface Annotation {
+use ArrayAccess;
+
+interface Annotation extends ArrayAccess {
     public function getName(): string;
     public function setField(string $label, $val);
     public function setFields(array $fields);

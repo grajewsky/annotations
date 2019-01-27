@@ -36,4 +36,24 @@ class Annotation implements AnnotationInteraface {
     public function getName(): string {
         return $this->name;
     }
+
+    public function offsetSet($offset, $value) {
+        if (is_null($offset)) {
+            return;
+        } else {
+            $this->fields[$offset] = $value;
+        }
+    }
+
+    public function offsetExists($offset) {
+        return isset($this->fields[$offset]);
+    }
+
+    public function offsetUnset($offset) {
+        unset($this->fields[$offset]);
+    }
+
+    public function offsetGet($offset) {
+        return isset($this->fields[$offset]) ? $this->fields[$offset] : null;
+    }
 }
