@@ -46,6 +46,7 @@ final class AnnotationsReadTest extends TestCase
     }
     public function testOnePropertyHasEmptyAnnotationFields(): void {
         $allAnnotations = $this->annotationsDefault->annotations(Annotations::ALL_ANNOTATIONS);
+        print_r($allAnnotations);
         $foundEmptyFields = false;
         foreach ($allAnnotations as $property => $annotations) {
             $this->assertTrue(is_string($property));
