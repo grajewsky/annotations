@@ -59,5 +59,15 @@ final class AnnotationsReadTest extends TestCase
         }
         $this->assertTrue($foundEmptyFields);
     }
+    public function testAnnotationFieldsArrayAccess(): void {
+        $annotationName = 'Sample';
+        $annotationField = 'value';
+
+        $annotations = $this->annotationsDefault->annotations(Annotations::CLASS_ANNOTATIONS);
+        $annotation = $annotations[$annotationName];
+        $this->assertArrayHasKey($annotationField, $annotation);
+        $this->assertNotEmpty($annotation[$annotationField]);
+        $this->assertEquals($annotation[$annotationField], $annotation->getField($annotationField));
+    }
 
 }
