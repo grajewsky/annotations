@@ -24,4 +24,9 @@ interface AnnotationsStorage extends Configable {
      * @return Array<Annotation> | null
      */
     public function get(string $label): ?array;
+
+    /** 
+     * @return Array<String, Annotation>
+     */
+    public function getAll() : array;
 }

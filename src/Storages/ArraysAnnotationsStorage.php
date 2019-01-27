@@ -19,9 +19,6 @@ class ArraysAnnotationsStorage implements AnnotationsStorage {
     public function __construct(){
         $this->_annotations = array();
     }
-    private function normalizeAnnotationsArray(array $annotations, bool $annotationAssoc = false) : array {
-        
-    }
     public function putAll(string $label, array $annotations): void {
         if(is_array($this->_annotations)) {
             $this->_annotations[$label] = $annotations;
@@ -52,5 +49,9 @@ class ArraysAnnotationsStorage implements AnnotationsStorage {
     public function getConfig(): array {
         // unsupported
         return array();
+    }
+
+    public function getAll(): array {
+        return $this->_annotations;
     }
 }
