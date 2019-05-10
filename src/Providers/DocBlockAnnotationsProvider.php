@@ -2,17 +2,17 @@
 
 
 
-namespace Grajewsky\Annotations\Providers;
+namespace Annotations\Providers;
 
-use Grajewsky\Annotations\Interfaces\Parser;
-use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
+use Annotations\Interfaces\Parser;
+use Annotations\Interfaces\AnnotationsProvider;
 
 
 class DocBlockAnnotationsProvider implements AnnotationsProvider {
     /**
      * Parser
      *
-     * @var Grajewsky\Annotations\Interfaces\Parser
+     * @var Annotations\Interfaces\Parser
      */
     private $parser;
 

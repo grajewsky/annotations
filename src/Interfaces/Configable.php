@@ -1,6 +1,6 @@
 <?php
 
-namespace Grajewsky\Annotations\Interfaces;
+namespace Annotations\Interfaces;
 
 interface Configable {
     public function setConfig(array $data);

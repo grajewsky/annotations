@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Grajewsky\Annotations\Interfaces;
+namespace Annotations\Interfaces;
 
-use Grajewsky\Annotations\Interfaces\Parser;
+use Annotations\Interfaces\Parser;
 
 /**
  * AnnotationsProvider - Dostarcza 
@@ -26,7 +26,7 @@ interface AnnotationsProvider {
     /**
      * Return Annotations
      * @param $fromString
-     * @return Array<Grajewsky\Annotations\Interfaces\Annotation>
+     * @return Array<Annotations\Interfaces\Annotation>
      */
     public function getAnnotations(string $fromString): array;
     

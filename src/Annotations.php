@@ -1,16 +1,16 @@
 <?php 
 
-namespace Grajewsky\Annotations;
+namespace Annotations;
 
 use ReflectionClass;
-use Grajewsky\Annotations\Interfaces\Settings;
-use Grajewsky\Annotations\Settings\Settings as SettingsImpl;
-use Grajewsky\Annotations\Interfaces\Annotation;
+use Annotations\Interfaces\Settings;
+use Annotations\Settings\Settings as SettingsImpl;
+use Annotations\Interfaces\Annotation;
 
 
 final class Annotations {
     /** 
-     * @var Grajewsky\Annotations\Interfaces\Settings
+     * @var Annotations\Interfaces\Settings
      */
     private $settings;
 
@@ -62,7 +62,7 @@ final class Annotations {
             $rf = new ReflectionClass($class);
             $annotations = $provider->getAnnotations($rf->getDocComment());
             foreach($annotations as $annotation) {
-                if($annotation instanceof \Grajewsky\Annotations\Interfaces\Annotation) {
+                if($annotation instanceof \Annotations\Interfaces\Annotation) {
                     $storage->add("class", $annotation);
                 }
             }
@@ -77,7 +77,7 @@ final class Annotations {
             foreach ($fieldsProperties as $reflectField) {
                 $annotations = $provider->getAnnotations($reflectField->getDocComment());
                 foreach($annotations as $annotation) {
-                    if($annotation instanceof \Grajewsky\Annotations\Interfaces\Annotation) {
+                    if($annotation instanceof \Annotations\Interfaces\Annotation) {
                         $storage->add($reflectField->getName(), $annotation);
                     }
                 }   

@@ -1,9 +1,9 @@
 <?php
 
-namespace Grajewsky\Annotations\Interfaces;
+namespace Annotations\Interfaces;
 
-use Grajewsky\Annotations\Interfaces\Annotation;
-use Grajewsky\Annotations\Interfaces\Configable;
+use Annotations\Interfaces\Annotation;
+use Annotations\Interfaces\Configable;
 
 
 interface AnnotationsStorage extends Configable {

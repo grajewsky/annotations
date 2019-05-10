@@ -1,18 +1,18 @@
 <?php 
 
 
-namespace Grajewsky\Annotations\Settings;
+namespace Annotations\Settings;
 
-use Grajewsky\Annotations\Parsers\AnnotationParser;
-use Grajewsky\Annotations\Interfaces\AnnotationsStorage;
-use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
-use Grajewsky\Annotations\Storages\ArraysAnnotationsStorage;
-use Grajewsky\Annotations\Providers\DocBlockAnnotationsProvider;
-use Grajewsky\Annotations\Interfaces\Settings as SettingsInterface;
+use Annotations\Parsers\AnnotationParser;
+use Annotations\Interfaces\AnnotationsStorage;
+use Annotations\Interfaces\AnnotationsProvider;
+use Annotations\Storages\ArraysAnnotationsStorage;
+use Annotations\Providers\DocBlockAnnotationsProvider;
+use Annotations\Interfaces\Settings as SettingsInterface;
 
 final class Settings implements SettingsInterface {
     /**
-     * @var Grajewsky\Annotations\Interfaces\AnnotationsStorage
+     * @var Annotations\Interfaces\AnnotationsStorage
      */
     private $storage;
 
@@ -27,7 +27,7 @@ final class Settings implements SettingsInterface {
     /**
      * AnnotationProvider
      *
-     * @var Grajewsky\Annotations\Interfaces\AnnotationsProvider
+     * @var Annotations\Interfaces\AnnotationsProvider
      */
     private $provider;
     

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Grajewsky\Annotations\Parsers;
+namespace Annotations\Parsers;
 
-use Grajewsky\Annotations\Interfaces\Parser;
-use Grajewsky\Annotations\Domains\Annotation;
+use Annotations\Interfaces\Parser;
+use Annotations\Domains\Annotation;
 
 
 class AnnotationParser implements Parser {
@@ -12,7 +12,7 @@ class AnnotationParser implements Parser {
     const ANNOTATION_REGEX = '/@(\w+)(?:\s*(?:\(\s*)?(.*?)(?:\s*\))?)??\s*(?:\n|\*\/)/';
 
     private $parametersParsers = array(
-        \Grajewsky\Annotations\Parsers\Helper\ParametersParser::class
+        \Annotations\Parsers\Helper\ParametersParser::class
     );
     private function parseParamteter(string $source): array {
         $parameters = array();

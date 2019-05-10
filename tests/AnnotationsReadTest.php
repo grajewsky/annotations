@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 use Test\EntityTestClass;
 use PHPUnit\Framework\TestCase;
-use Grajewsky\Annotations\Annotations;
-use Grajewsky\Annotations\Interfaces\Annotation;
+use Annotations\Annotations;
+use Annotations\Interfaces\Annotation;
 
 final class AnnotationsReadTest extends TestCase
 {
@@ -14,7 +14,7 @@ final class AnnotationsReadTest extends TestCase
     private $annotationsDefault = null;
 
     public function setUp() {
-        if($this->annotationsDefault == null) {
+        if ($this->annotationsDefault == null) {
             $this->annotationsDefault = Annotations::read(EntityTestClass::class);
         }
     }
@@ -22,7 +22,7 @@ final class AnnotationsReadTest extends TestCase
         $name = "test";
         $fields = array("test1" => 'test');
 
-        $annotation  = new \Grajewsky\Annotations\Domains\Annotation($name, $fields);
+        $annotation  = new \Annotations\Domains\Annotation($name, $fields);
 
         $this->assertEquals($annotation->getFields(), $fields);
         $this->assertEquals($annotation->getName(), $name);
@@ -38,7 +38,7 @@ final class AnnotationsReadTest extends TestCase
         $arrayOfAnnotations = $this->annotationsDefault->annotations($propertyName);
         $this->assertArrayHasKey($requiredArrayKey, $arrayOfAnnotations);
         $this->assertTrue(is_array($arrayOfAnnotations));
-        foreach($arrayOfAnnotations as $keyString => $annotationObject) {
+        foreach ($arrayOfAnnotations as $keyString => $annotationObject) {
             $this->assertTrue(is_string($keyString));
             $this->assertInstanceOf(Annotation::class, $arrayOfAnnotations[$keyString]);
         }
@@ -46,14 +46,13 @@ final class AnnotationsReadTest extends TestCase
     }
     public function testOnePropertyHasEmptyAnnotationFields(): void {
         $allAnnotations = $this->annotationsDefault->annotations(Annotations::ALL_ANNOTATIONS);
-        print_r($allAnnotations);
         $foundEmptyFields = false;
         foreach ($allAnnotations as $property => $annotations) {
             $this->assertTrue(is_string($property));
             foreach ($annotations as $name => $annotation) {
                 $this->assertTrue(is_string($name));
                 $this->assertInstanceOf(Annotation::class, $annotation);
-                if(count($annotation->getFields()) == 0) {
+                if (count($annotation->getFields()) == 0) {
                     $foundEmptyFields = true;
                 }
             }

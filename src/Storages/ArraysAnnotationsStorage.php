@@ -1,10 +1,10 @@
 <?php 
 
-namespace Grajewsky\Annotations\Storages;
+namespace Annotations\Storages;
 
 use SplFixedArray;
-use Grajewsky\Annotations\Interfaces\Annotation;
-use Grajewsky\Annotations\Interfaces\AnnotationsStorage;
+use Annotations\Interfaces\Annotation;
+use Annotations\Interfaces\AnnotationsStorage;
 
 /**
  * Dostarcza Adnotacje

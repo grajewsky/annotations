@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Grajewsky\Annotations\Parsers\Helper;
+namespace Annotations\Parsers\Helper;
 
 
 

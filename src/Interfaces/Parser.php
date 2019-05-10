@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Grajewsky\Annotations\Interfaces;
+namespace Annotations\Interfaces;
 
 
 

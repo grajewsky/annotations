@@ -1,10 +1,10 @@
 <?php 
 
 
-namespace Grajewsky\Annotations\Interfaces;
+namespace Annotations\Interfaces;
 
-use Grajewsky\Annotations\Interfaces\AnnotationsStorage;
-use Grajewsky\Annotations\Interfaces\AnnotationsProvider;
+use Annotations\Interfaces\AnnotationsStorage;
+use Annotations\Interfaces\AnnotationsProvider;
 
 interface Settings {
     public function setStorage(AnnotationsStorage $as): void;

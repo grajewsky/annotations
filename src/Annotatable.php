@@ -1,14 +1,15 @@
 <?php 
 
-namespace Grajewsky\Annotations;
+namespace Annotations;
 
-use Grajewsky\Annotations\Settings\Settings;
+use Annotations\Settings\Settings;
+use Annotations\Annotations;
 
 
 abstract class Annotatable {
 
     /**
-     * @var Grajewsky\Annotations\Annotations
+     * @var Annotations\Annotations
      */
     private $annotations = null;
     /**

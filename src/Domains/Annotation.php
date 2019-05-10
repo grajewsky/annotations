@@ -1,9 +1,9 @@
 <?php
 
-namespace Grajewsky\Annotations\Domains;
+namespace Annotations\Domains;
 
 use SplObjectStorage;
-use Grajewsky\Annotations\Interfaces\Annotation as AnnotationInteraface;
+use Annotations\Interfaces\Annotation as AnnotationInteraface;
 
 
 class Annotation implements AnnotationInteraface {
