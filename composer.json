@@ -2,6 +2,7 @@
     "name": "grajewsky/annotations",
     "description": "PHP Annotations OOP",
     "type": "library",
+    "version": "1.1",
     "autoload": {
         "psr-4": {
             "Annotations\\": "src/",
