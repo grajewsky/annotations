@@ -3,7 +3,7 @@
 ### Quick Use
 
 ```php
-use Grajewsky\Annotations\Annotations;
+use \Annotations\Annotations;
 /**
  * @Sample value=1
  * @SampleTest value=1, test=2
@@ -32,48 +32,48 @@ Array
 (
     [class] => Array
         (
-            [Sample] => Grajewsky\Annotations\Domains\Annotation Object
+            [Sample] => Annotations\Domains\Annotation Object
                 (
-                    [fields:Grajewsky\Annotations\Domains\Annotation:private] => Array
+                    [fields:Annotations\Domains\Annotation:private] => Array
                         (
                             [value] => 1
                         )
 
-                    [name:Grajewsky\Annotations\Domains\Annotation:private] => Sample
+                    [name:Annotations\Domains\Annotation:private] => Sample
                 )
 
-            [SampleTest] => Grajewsky\Annotations\Domains\Annotation Object
+            [SampleTest] => Annotations\Domains\Annotation Object
                 (
-                    [fields:Grajewsky\Annotations\Domains\Annotation:private] => Array
+                    [fields:Annotations\Domains\Annotation:private] => Array
                         (
                             [value] => 1
                             [test] => 2
                         )
 
-                    [name:Grajewsky\Annotations\Domains\Annotation:private] => SampleTest
+                    [name:Annotations\Domains\Annotation:private] => SampleTest
                 )
 
         )
 
     [test] => Array
         (
-            [ORM] => Grajewsky\Annotations\Domains\Annotation Object
+            [ORM] => Annotations\Domains\Annotation Object
                 (
-                    [fields:Grajewsky\Annotations\Domains\Annotation:private] => Array
+                    [fields:Annotations\Domains\Annotation:private] => Array
                         (
                             [table] => entity
                         )
 
-                    [name:Grajewsky\Annotations\Domains\Annotation:private] => ORM
+                    [name:Annotations\Domains\Annotation:private] => ORM
                 )
 
-            [Test] => Grajewsky\Annotations\Domains\Annotation Object
+            [Test] => Annotations\Domains\Annotation Object
                 (
-                    [fields:Grajewsky\Annotations\Domains\Annotation:private] => Array
+                    [fields:Annotations\Domains\Annotation:private] => Array
                         (
                         )
 
-                    [name:Grajewsky\Annotations\Domains\Annotation:private] => Test
+                    [name:Annotations\Domains\Annotation:private] => Test
                 )
 
         )
