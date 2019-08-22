@@ -1,8 +1,17 @@
 {
     "name": "grajewsky/annotations",
-    "description": "PHP Annotations OOP",
+    "description": "PHP Annotations Reader OOP",
     "type": "library",
     "version": "1.1",
+    "keywords": [
+        "php",
+        "annotations",
+        "docblock",
+        "parser",
+        "annotation",
+        "comments",
+        "php parser"
+    ],
     "autoload": {
         "psr-4": {
             "Annotations\\": "src/",
