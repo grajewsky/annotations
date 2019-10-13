@@ -6,4 +6,4 @@ php:
 jobs:
   include:
     - stage: test
-      script: phpunit --bootstrap ./vendor/autoload.php --testdox tests
+      script: ./vendor/bin/phpunit --bootstrap ./vendor/autoload.php --testdox tests
