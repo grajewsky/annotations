@@ -2,7 +2,6 @@
     "name": "grajewsky/annotations",
     "description": "PHP Annotations Reader OOP",
     "type": "library",
-    "version": "1.2",
     "keywords": [
         "php",
         "annotations",
