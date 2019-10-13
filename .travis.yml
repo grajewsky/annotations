@@ -1,0 +1,9 @@
+language: php
+php:
+  - '7.0'
+  - '7.1'
+  - '7.2'
+jobs:
+  include:
+    - stage: test
+      script: phpunit --bootstrap ./vendor/autoload.php --testdox tests
