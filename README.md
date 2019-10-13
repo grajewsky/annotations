@@ -1,4 +1,4 @@
-# Annotations Reader for PHP
+# Annotations Reader for PHP ![](https://travis-ci.org/grajewsky/annotations.svg?branch=master)
 
 ### Quick Use
 
