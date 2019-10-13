@@ -13,7 +13,7 @@ interface Settings {
     public function setStrict(string $s): void; 
 
     /** 
-     * @return Enum<string>("array"|"strict")
+     * @ret Enum<string>("array"|"strict")
      */
     public function getStrict(): string; 
     

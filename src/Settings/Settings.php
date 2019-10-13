@@ -1,6 +1,4 @@
 <?php 
-
-
 namespace Annotations\Settings;
 
 use Annotations\Parsers\AnnotationParser;
@@ -12,13 +10,13 @@ use Annotations\Interfaces\Settings as SettingsInterface;
 
 final class Settings implements SettingsInterface {
     /**
-     * @var Annotations\Interfaces\AnnotationsStorage
+     * @var \Annotations\Interfaces\AnnotationsStorage
      */
     private $storage;
 
     /** 
      * Strict types for annotations. If You choose object then you use strict types, so you must define annotations Classes
-     * @var Enum<array|strict>
+     * @var string("array") | string("strict")
      */
     private $strict = "array";
 
@@ -27,7 +25,7 @@ final class Settings implements SettingsInterface {
     /**
      * AnnotationProvider
      *
-     * @var Annotations\Interfaces\AnnotationsProvider
+     * @var \Annotations\Interfaces\AnnotationsProvider
      */
     private $provider;
     

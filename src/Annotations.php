@@ -10,7 +10,7 @@ use Annotations\Interfaces\Annotation;
 
 final class Annotations {
     /** 
-     * @var Annotations\Interfaces\Settings
+     * @var \Annotations\Interfaces\Settings
      */
     private $settings;
 
@@ -48,11 +48,14 @@ final class Annotations {
     public function annotations(?string $accessor = null) : array {
         $storage = $this->getSettings()->getStorage();
         if(\is_null($accessor)) {
-            return $storage->get("class");
+            $result = $storage->get("class");
+            return $result ?? array();
+
         } else if($accessor == 'all') {
             return $storage->getAll();
         } else { 
-            return $storage->get($accessor);
+            $result = $storage->get($accessor);
+            return $result ?? array();
         }
     }
     private function readClassAnnotations($class) {
@@ -60,7 +63,7 @@ final class Annotations {
         if(\class_exists($class, true)) {
             $storage = $this->getSettings()->getStorage();
             $rf = new ReflectionClass($class);
-            $annotations = $provider->getAnnotations($rf->getDocComment());
+            $annotations = $provider->getAnnotations(strval($rf->getDocComment()));
             foreach($annotations as $annotation) {
                 if($annotation instanceof \Annotations\Interfaces\Annotation) {
                     $storage->add("class", $annotation);
@@ -74,7 +77,7 @@ final class Annotations {
         $provider = $this->getSettings()->getAnnotationsProvider();
         if (\is_null($fieldsProperties) || count($fieldsProperties) > 0) {
             $storage = $this->getSettings()->getStorage();
-            foreach ($fieldsProperties as $reflectField) {
+            foreach ($fieldsProperties ?? [] as $reflectField) {
                 $annotations = $provider->getAnnotations($reflectField->getDocComment());
                 foreach($annotations as $annotation) {
                     if($annotation instanceof \Annotations\Interfaces\Annotation) {

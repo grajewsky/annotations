@@ -22,7 +22,6 @@ class ArraysAnnotationsStorage implements AnnotationsStorage {
     public function putAll(string $label, array $annotations): void {
         if(is_array($this->_annotations)) {
             $this->_annotations[$label] = $annotations;
-            $this->_annotations[$label] = $val;
         }
     }
     public function add(string $label, Annotation $annotation): void {
@@ -38,10 +37,10 @@ class ArraysAnnotationsStorage implements AnnotationsStorage {
     public function get(string $label): ?array {
         $exist = \array_key_exists($label, $this->_annotations);
 
-        if($exist) {
+        if ($exist) {
             return $this->_annotations[$label];   
         }
-        return $exist;
+        return null;
     }
     public function setConfig(array $data): void {
         // unsupported

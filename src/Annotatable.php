@@ -2,14 +2,15 @@
 
 namespace Annotations;
 
-use Annotations\Settings\Settings;
 use Annotations\Annotations;
+use Annotations\Settings\Settings;
+use Annotations\Interfaces\Annotation;
 
 
 abstract class Annotatable {
 
     /**
-     * @var Annotations\Annotations
+     * @var Annotations
      */
     private $annotations = null;
     /**

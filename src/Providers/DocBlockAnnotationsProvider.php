@@ -12,7 +12,7 @@ class DocBlockAnnotationsProvider implements AnnotationsProvider {
     /**
      * Parser
      *
-     * @var Annotations\Interfaces\Parser
+     * @var \Annotations\Interfaces\Parser
      */
     private $parser;
 

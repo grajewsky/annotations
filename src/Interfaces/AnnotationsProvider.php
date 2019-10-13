@@ -25,8 +25,8 @@ interface AnnotationsProvider {
     public function getParser(): Parser;
     /**
      * Return Annotations
-     * @param $fromString
-     * @return Array<Annotations\Interfaces\Annotation>
+     * @param string $fromString
+     * @return Array<\Annotations\Interfaces\Annotation>
      */
     public function getAnnotations(string $fromString): array;
     

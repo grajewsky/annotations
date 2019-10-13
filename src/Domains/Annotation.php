@@ -14,7 +14,7 @@ class Annotation implements AnnotationInteraface {
     public function __construct(string $name, ?array $fields = null) {
         $this->name = $name;
         $this->fields = array();
-        if (\is_array($fields) && !\is_null($fields)) {
+        if (\is_array($fields) && !empty($fields)) {
                 $this->fields = $fields;
         }
     }
