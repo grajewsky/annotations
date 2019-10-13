@@ -14,7 +14,7 @@ final class AnnotationsReadTest extends TestCase
      */
     private $annotationsDefault = null;
 
-    public function setUp() {
+    protected function setUp(): void {
         if ($this->annotationsDefault == null) {
             $this->annotationsDefault = Annotations::read(EntityTestClass::class);
         }
