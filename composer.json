@@ -19,7 +19,7 @@
         }
     }, 
     "scripts": {
-        "tests": "phpunit --bootstrap ./vendor/autoload.php --testdox tests"
+        "tests": "phpunit -c phpunit.xml --testdox tests"
     },
     "license": "MIT",
     "authors": [
