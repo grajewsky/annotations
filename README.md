@@ -21,8 +21,8 @@ print_r($annotations->annotations(Annotations::ALL_ANNOTATIONS));
 
 #### About structure
 
-Stetament `$a = Annotations::read(EntityTestClass::class);` return Annotations class where you call `$a->annotations($accessor)` method  where string key is accessor when values  are:
-- pass const `Annotations::ALL_ANNOTATINS` - all annotations when key is accessor(class and properties/methods names) and values are `Array<Annotation>`
+Statement `$a = Annotations::read(EntityTestClass::class);` return Annotations class where you can induce `$a->annotations($accessor)` method, where the parameter is the key is the character string, where the values are:
+- pass const `Annotations::ALL_ANNOTATINS` - all the annotations(class and properties/methods) result is `Array<Annotation>`
 - pass const `Annotations::CLASS_ANNOTATIONS` - accessor return Array<String, Annotation> - annotations of class
 - pass property name or method to return annotations`
 
