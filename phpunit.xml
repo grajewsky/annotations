@@ -5,11 +5,16 @@ colors="true"
 convertErrorsToExceptions="true"
 convertNoticesToExceptions="true"
 convertWarningsToExceptions="true">
-        <testsuites>
-            <testsuite name="unit">
-            <directory>tests</directory>
-            </testsuite>
-        </testsuites>
+    <testsuites>
+        <testsuite name="unit">
+        <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
     <php>
         <ini name="display_errors" value="On" />
         <ini name="display_startup_errors" value="On" />
